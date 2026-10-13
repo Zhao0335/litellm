@@ -328,6 +328,8 @@ export interface TeamData {
     access_group_models?: string[];
     access_group_mcp_server_ids?: string[];
     access_group_agent_ids?: string[];
+    access_group_skill_names?: string[];
+    unresolved_access_group_ids?: string[] | null;
     access_group_details?: TeamAccessGroupModelGrant[];
     router_settings?: Record<string, any>;
     guardrails?: string[];
@@ -1325,6 +1327,11 @@ const TeamInfoView: React.FC<TeamInfoProps> = ({
     info.access_group_details,
     (grant) => grant.agent_ids,
   );
+  const inheritedSkills = computeInheritedGrants(
+    info.access_group_skill_names,
+    info.access_group_details,
+    (grant) => grant.skill_names,
+  );
 
   const initialKillSwitchOn = info.metadata?.disable_global_guardrails === true;
 
@@ -1435,6 +1442,8 @@ const TeamInfoView: React.FC<TeamInfoProps> = ({
             objectPermission={info.object_permission}
             inheritedMcpServers={inheritedMcpServers}
             inheritedAgents={inheritedAgents}
+            inheritedSkills={inheritedSkills}
+            unresolvedAccessGroupIds={info.unresolved_access_group_ids}
             variant="card"
             accessToken={accessToken}
           />
@@ -2441,6 +2450,8 @@ const TeamInfoView: React.FC<TeamInfoProps> = ({
                 objectPermission={info.object_permission}
                 inheritedMcpServers={inheritedMcpServers}
                 inheritedAgents={inheritedAgents}
+                inheritedSkills={inheritedSkills}
+                unresolvedAccessGroupIds={info.unresolved_access_group_ids}
                 variant="inline"
                 className="pt-4 border-t border-border"
                 accessToken={accessToken}
