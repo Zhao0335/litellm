@@ -1,0 +1,58 @@
+{
+  "stage": "after",
+  "url": "http://127.0.0.1:4103/ui/cost-optimization/",
+  "timezone": "UTC",
+  "initialDisplay": "8 Oct, 00:00 - 14 Oct, 23:59",
+  "selectedDisplay": "5 Sep, 00:00 - 14 Oct, 23:59",
+  "initialRequest": {
+    "path": "/user/daily/activity/aggregated",
+    "query": {
+      "start_date": "2026-10-08",
+      "end_date": "2026-10-14",
+      "timezone": "0",
+      "include_current_utc_day": "true"
+    },
+    "status": 200,
+    "resultDays": 7,
+    "totalRequests": 140
+  },
+  "widerRequest": {
+    "path": "/user/daily/activity/aggregated",
+    "query": {
+      "start_date": "2026-09-05",
+      "end_date": "2026-10-14",
+      "timezone": "0",
+      "include_current_utc_day": "true"
+    },
+    "status": 200,
+    "resultDays": 40,
+    "totalRequests": 800
+  },
+  "requests": [
+    {
+      "path": "/user/daily/activity/aggregated",
+      "query": {
+        "start_date": "2026-10-08",
+        "end_date": "2026-10-14",
+        "timezone": "0",
+        "include_current_utc_day": "true"
+      },
+      "status": 200,
+      "resultDays": 7,
+      "totalRequests": 140
+    },
+    {
+      "path": "/user/daily/activity/aggregated",
+      "query": {
+        "start_date": "2026-09-05",
+        "end_date": "2026-10-14",
+        "timezone": "0",
+        "include_current_utc_day": "true"
+      },
+      "status": 200,
+      "resultDays": 40,
+      "totalRequests": 800
+    }
+  ],
+  "errors": []
+}
